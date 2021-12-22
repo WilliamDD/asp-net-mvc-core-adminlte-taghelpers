@@ -1,0 +1,40 @@
+﻿@using asp_net_mvc_core_adminlte_taghelpers.Viewmodels
+@model HomeIndexViewModel
+<card asp-title="Forms blu">
+    <editor asp-readonly="true" asp-for="BusinessCount"></editor>
+    <editor asp-multiline="true" asp-for="CompetenciesCount"></editor>
+    <editor asp-readonly="true" asp-multiline="true" asp-multiline-columns="50" asp-multiline-rows="10" asp-for="ContactsCount"></editor>
+    <editor asp-for="ProductCategoriesCount"></editor>
+    <editor asp-for="ProductsCount"></editor>
+    <editor asp-for="ProjectMileStonesCount"></editor>
+    <editor asp-for="ProjectsCount"></editor>
+    <editor asp-readonly="true" asp-for="EmployeesCount"></editor>
+
+    <checkbox asp-readonly="true" asp-for="IsIngelogd"></checkbox>
+    <checkbox asp-for="IsUitgelogd"></checkbox>
+
+    <Selectbox asp-for="UserId" asp-items="Model.SelectList"></Selectbox>
+    <Selectbox asp-for="UserIdDis" asp-items="Model.SelectList" asp-readonly="true"></Selectbox>
+
+    <Selectbox asp-for="Teamleden" asp-items="Model.SelectList" asp-multiselect="true"></Selectbox>
+    <Selectbox asp-for="TeamledenDis" asp-items="Model.SelectList" asp-multiselect="true" asp-readonly="true"></Selectbox>
+
+    <editor asp-for="GeboorteDatum"></editor>
+    <editor asp-for="GeboorteDatum2"></editor>
+    <editor asp-for="GeboorteDatum3"></editor>
+
+    <selectbox-ajax asp-for="BusinessId" asp-data-url="/crm/business/dropdown"></selectbox-ajax>
+    <selectbox-ajax asp-for="ContactId" asp-cascade="BusinessId" asp-data-url="/crm/contact/dropdown"></selectbox-ajax>
+</card>
+
+<tab-container asp-id="Tabber1">
+    <tab asp-id="Tab-1" asp-title="Taken" asp-active="true"></tab>
+    <tab asp-id="Tab-2" asp-title="Mijlpalen"></tab>
+</tab-container>
+
+<tab-container asp-id="Tabber2">
+    <tab asp-id="Tab-3" asp-title="Taken" asp-active="true"></tab>
+    <tab asp-id="Tab-4" asp-title="Mijlpalen"></tab>
+</tab-container>
+
+
